@@ -1,10 +1,15 @@
 import React from 'react'
-import { DefaultTemplate } from 'components/templates'
-import { Tasks } from 'modules'
+import { DefaultTemplate, Main, Sidebar } from 'components/templates'
+import { Toolbar, Content } from 'components/organisms'
 
 const Home = () => (
   <DefaultTemplate>
-    <Tasks />
+    <Sidebar />
+
+    <Main>
+      <Toolbar />
+      <Content />
+    </Main>
   </DefaultTemplate>
 )
 

@@ -21,6 +21,7 @@
     }
   },
   "rules": {
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }],
     "padding-line-between-statements": [
       "error",
       { "blankLine": "always", "prev": ["const", "let", "case", "default"], "next": "*" },
@@ -61,7 +62,7 @@
         "aspects": ["invalidHref"]
       }
     ],
-    "jest/expect-expect": ["error", { "assertFunctionNames": ["expect", "testSaga"] }],
+    "jest/expect-expect": ["error", { "assertFunctionNames": ["expect", "testSaga", "expectSaga"] }],
     "jest/prefer-inline-snapshots": "off",
     "jest/prefer-expect-assertions": "off",
     "jest/prefer-called-with": "off",

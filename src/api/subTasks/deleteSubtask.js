@@ -3,10 +3,12 @@ import delay from 'utils/delay'
 
 export default delay(subTaskId => {
   const subTasks = Storage.subTasks.get()
-  const subTask = subTasks.find(t => t.id !== subTaskId)
+  //  Note: Исправлена ошибка удаления подзадачи
+  const subTask = subTasks.find(t => t.id === subTaskId)
 
   if (subTask) {
     Storage.subTasks.set(subTasks.filter(st => st.id !== subTaskId))
+
     return subTask
   }
 

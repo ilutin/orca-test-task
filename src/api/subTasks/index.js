@@ -1,4 +1,4 @@
-import deleteSubtask from './deleteSubtask'
+import deleteSubTask from './deleteSubtask'
 import fetchSubTasks from './fetchSubTasks'
 
-export { deleteSubtask, fetchSubTasks }
+export { deleteSubTask, fetchSubTasks }

@@ -1,5 +1,20 @@
 import { createGlobalStyle } from 'styled-components'
 
+export const theme = {
+  colors: {
+    primary: '#2e343c',
+    secondary: '#222831',
+    icon: '#00ADB5',
+    iconHover: '#EEEEEE',
+    hover: '#8e92a438',
+    taskBg: 'rgba(142, 146, 164, 0.15)',
+    textColor: '#fff',
+  },
+  media: {
+    laptop: '(max-width: 1024px)',
+  },
+}
+
 export default createGlobalStyle`
   * {
     padding: 0;
@@ -20,6 +35,7 @@ export default createGlobalStyle`
     font-weight: 400;
     font-size: 14px;
     line-height: 1.4;
+    color: ${theme.colors.textColor};
   }
 
   a {

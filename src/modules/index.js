@@ -1,1 +1,6 @@
 export { default as Tasks } from './Tasks/Tasks'
+export { default as Task } from './Task/Task'
+export { default as SubTasks } from './SubTasks/SubTasks'
+export { default as SubTask } from './SubTask/SubTask'
+export { default as SearchButton } from './SearchButton/SearchButton'
+export { default as Filter } from './Filter/Filter'
