@@ -2,6 +2,7 @@ import { all, call, put, takeEvery } from 'redux-saga/effects'
 import * as tasksAPI from 'api/tasks'
 import { fetchTasks, createTask, deleteTask, setTasksLoading } from 'store/reducers/tasksReducer'
 import { setAlert } from 'store/reducers/appReducer'
+import { types } from 'store/actionTypes'
 import { fetchSubTasksSaga } from '.'
 
 export function* fetchTasksSaga() {
@@ -44,8 +45,8 @@ export function* deleteTaskSaga({ payload }) {
 
 export default function* tasksSagaWatcher() {
   yield all([
-    takeEvery('FETCH_TASKS_SAGA', fetchTasksSaga),
-    takeEvery('CREATE_TASK_SAGA', createTaskSaga),
-    takeEvery('DELETE_TASK_SAGA', deleteTaskSaga),
+    takeEvery(types.FETCH_TASKS_SAGA, fetchTasksSaga),
+    takeEvery(types.CREATE_TASK_SAGA, createTaskSaga),
+    takeEvery(types.DELETE_TASK_SAGA, deleteTaskSaga),
   ])
 }

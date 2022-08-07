@@ -6,6 +6,7 @@ import { TimePicker } from '@styled-icons/fluentui-system-filled/TimePicker'
 import { Eraser } from '@styled-icons/fluentui-system-filled/Eraser'
 import { setTitleSort, setCreatedTimeSort, clearToolbar } from 'store/reducers/appReducer'
 import { Filter, SearchButton } from 'modules'
+import { types } from 'store/actionTypes'
 import { ToolbarStyled, ToolbarItemStyled, ToolbarTextStyled } from './Toolbar.styles'
 
 const Toolbar = () => {
@@ -15,7 +16,7 @@ const Toolbar = () => {
   const createdTimeSort = useSelector(state => state.app.createdTimeSort)
 
   const createTask = useCallback(() => {
-    dispatch({ type: 'CREATE_TASK_SAGA' })
+    dispatch({ type: types.CREATE_TASK_SAGA })
   }, [dispatch])
 
   const sortByTitle = useCallback(() => {

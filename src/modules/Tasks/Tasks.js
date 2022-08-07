@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Spinner, Text } from 'components/atoms'
 import { Flex } from 'components/templates'
 import { selectFilteredTasks } from 'store/selectors'
+import { types } from 'store/actionTypes'
 import Task from '../Task/Task'
 
 const Tasks = () => {
@@ -11,7 +12,7 @@ const Tasks = () => {
   const filteredTasks = useSelector(selectFilteredTasks)
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_TASKS_SAGA' })
+    dispatch({ type: types.FETCH_TASKS_SAGA })
   }, [dispatch])
 
   if (tasksLoading) {

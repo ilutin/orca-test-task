@@ -11,6 +11,7 @@ import tasksReducer, {
   deleteTask,
 } from 'store/reducers/tasksReducer'
 import { appReducer } from 'store/reducers'
+import { types } from 'store/actionTypes'
 import { fetchTasksSaga, createTaskSaga, deleteTaskSaga } from '../tasksSaga'
 import { fetchSubTasksSaga } from '../subTasksSaga'
 
@@ -42,7 +43,7 @@ describe('tasksSaga', () => {
         expectSaga(fetchTasksSaga)
           .withReducer(tasksReducer)
           .provide([[call(tasksAPI.fetchTasks), mockedTasks]])
-          .dispatch({ type: 'FETCH_TASKS_SAGA' })
+          .dispatch({ type: types.FETCH_TASKS_SAGA })
           .put(setTasksLoading(true))
           .put(fetchTasks(mockedTasks))
           .put(setTasksLoading(false))
@@ -56,7 +57,7 @@ describe('tasksSaga', () => {
         expectSaga(fetchTasksSaga)
           .withReducer(tasksReducer)
           .provide([[call(tasksAPI.fetchTasks), throwError(error)]])
-          .dispatch({ type: 'FETCH_TASKS_SAGA' })
+          .dispatch({ type: types.FETCH_TASKS_SAGA })
           .put(setTasksLoading(true))
           .put(setTasksLoading(false))
           .hasFinalState({
@@ -69,7 +70,7 @@ describe('tasksSaga', () => {
         expectSaga(fetchTasksSaga)
           .withReducer(appReducer)
           .provide([[call(tasksAPI.fetchTasks), throwError(error)]])
-          .dispatch({ type: 'FETCH_TASKS_SAGA' })
+          .dispatch({ type: types.FETCH_TASKS_SAGA })
           .hasFinalState({
             alert: 'Ошибка загрузки задач',
             titleSort: null,
@@ -96,7 +97,7 @@ describe('tasksSaga', () => {
         expectSaga(createTaskSaga)
           .withReducer(tasksReducer)
           .provide([[call(tasksAPI.createTask), throwError(error)]])
-          .dispatch({ type: 'CREATE_TASK_SAGA' })
+          .dispatch({ type: types.CREATE_TASK_SAGA })
           .hasFinalState({
             loading: false,
             tasks: [],
@@ -107,7 +108,7 @@ describe('tasksSaga', () => {
         expectSaga(createTaskSaga)
           .withReducer(appReducer)
           .provide([[call(tasksAPI.createTask), throwError(error)]])
-          .dispatch({ type: 'CREATE_TASK_SAGA' })
+          .dispatch({ type: types.CREATE_TASK_SAGA })
           .hasFinalState({
             alert: 'Ошибка создания задачи',
             titleSort: null,
